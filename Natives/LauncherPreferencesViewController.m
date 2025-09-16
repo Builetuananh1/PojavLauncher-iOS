@@ -253,8 +253,7 @@
             @{@"key": @"enable_longPressTwoGesture",
                 @"icon": @"keyboard",
                 @"hasDetail": @YES,
-                @"type": self.typeSwitch,
-                @"enableCondition": whenNotInGame
+                @"type": self.typeSwitch
             },
             @{@"key": @"disable_haptics",
                 @"icon": @"wave.3.left",

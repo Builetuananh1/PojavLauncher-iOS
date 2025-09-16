@@ -159,15 +159,14 @@ static GameSurfaceView* pojavWindow;
     self.longPressGesture.cancelsTouchesInView = NO;
     self.longPressGesture.delegate = self;
     [self.touchView addGestureRecognizer:self.longPressGesture];
-    
-    if (getPrefBool(@"control.enable_longPressTwoGesture")) {
-        self.longPressTwoGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(keyboardGesture:)];
-        self.longPressTwoGesture.numberOfTouchesRequired = 2;
-        self.longPressTwoGesture.allowedTouchTypes = @[@(UITouchTypeDirect)];
-        self.longPressTwoGesture.cancelsTouchesInView = NO;
-        self.longPressTwoGesture.delegate = self;
-        [self.touchView addGestureRecognizer:self.longPressTwoGesture];
-    }
+
+    self.longPressTwoGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(keyboardGesture:)];
+    self.longPressTwoGesture.numberOfTouchesRequired = 2;
+    self.longPressTwoGesture.allowedTouchTypes = @[@(UITouchTypeDirect)];
+    self.longPressTwoGesture.cancelsTouchesInView = NO;
+    self.longPressTwoGesture.delegate = self;
+    [self.touchView addGestureRecognizer:self.longPressTwoGesture];
+
 
     self.scrollPanGesture = [[UIPanGestureRecognizer alloc]
         initWithTarget:self action:@selector(surfaceOnTouchesScroll:)];
@@ -349,7 +348,8 @@ static GameSurfaceView* pojavWindow;
     self.scrollPanGesture.enabled = self.enableMouseGestures;
     self.doubleTapGesture.enabled = self.enableHotbarGestures;
     self.longPressGesture.minimumPressDuration = getPrefFloat(@"control.press_duration") / 1000.0;
-
+    self.longPressTwoGesture.enabled = getPrefBool(@"control.enable_longPressTwoGesture");
+    
     // Update audio settings
     [self updateAudioSettings];
     // Update resolution
