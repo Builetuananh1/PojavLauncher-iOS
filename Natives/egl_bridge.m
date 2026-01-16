@@ -60,7 +60,6 @@ int pojavInitOpenGL() {
         renderer = @RENDERER_NAME_MTL_ANGLE;
         set_gl_bridge_tbl();
     } else if ([renderer isEqualToString:@ RENDERER_NAME_MOBILEGLUES]) {
-        //renderer = @RENDERER_NAME_MOBILEGLUES;
         set_gl_bridge_tbl();
     } else if ([renderer hasPrefix:@"libOSMesa"]) {
         setenv("GALLIUM_DRIVER","zink",1);
