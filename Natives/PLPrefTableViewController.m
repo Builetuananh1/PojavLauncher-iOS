@@ -320,7 +320,9 @@
     if (item[@"type"] == self.typeSwitch) {
         DayNightSwitch *view = (id)cell.accessoryView;
         view.on = !view.on;
-        [view sendActionsForControlEvents:UIControlEventValueChanged];
+        if (view.changeAction) {
+            view.changeAction(view.on);
+        }
     }
 }
 

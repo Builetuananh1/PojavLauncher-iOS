@@ -75,12 +75,6 @@ Pojav Patch makes use of **just-in-time compilation**, or JIT, to provide usable
 ## Contributors
 Pojav Patch is amazing, and surprisingly stable, and it wouldn't be this way without the commmunity that helped and contribute to the project! Some notable names:
 
-**In this repository (Pojav-Patch-iOS)**:
-
-@congcq (CongChu)
-
-**In PojavLauncher iOS repository**:
-
 @khanhduytran0 - Lead iOS port developer  
 @crystall1nedev - Lead iOS port developer  
 @artdeell  
@@ -88,6 +82,7 @@ Pojav Patch is amazing, and surprisingly stable, and it wouldn't be this way wit
 @zhuowei  
 @jkcoxson   
 @Diatrus 
+@congcq - Pojav Patch's maintainer
 
 ## Third party components and their licenses
 - [Caciocavallo](https://github.com/PojavLauncherTeam/caciocavallo): [GNU GPLv2 License](https://github.com/PojavLauncherTeam/caciocavallo/blob/master/LICENSE).
@@ -95,12 +90,13 @@ Pojav Patch is amazing, and surprisingly stable, and it wouldn't be this way wit
 - [Boardwalk](https://github.com/zhuowei/Boardwalk): [Apache 2.0 License](https://github.com/zhuowei/Boardwalk/blob/master/LICENSE) 
 - [GL4ES](https://github.com/ptitSeb/gl4es) by @lunixbochs @ptitSeb: [MIT License](https://github.com/ptitSeb/gl4es/blob/master/LICENSE).
 - [Mesa 3D Graphics Library](https://gitlab.freedesktop.org/mesa/mesa): [MIT License](https://docs.mesa3d.org/license.html).
-- [MetalANGLE](https://github.com/khanhduytran0/metalangle) by @kakashidinho and ANGLE team: [BSD 2.0 License](https://github.com/kakashidinho/metalangle/blob/master/LICENSE).
+- [MobileGlues](https://github.com/MobileGL-Dev/MobileGlues) by @Swung0x48 @BZLZHH: [LGPL-2.1 License](https://github.com/MobileGL-Dev/MobileGlues/blob/main/LICENSE).
 - [MoltenVK](https://github.com/KhronosGroup/MoltenVK): [Apache 2.0 License](https://github.com/KhronosGroup/MoltenVK/blob/master/LICENSE).
 - [openal-soft](https://github.com/kcat/openal-soft): [LGPLv2 License](https://github.com/kcat/openal-soft/blob/master/COPYING).
 - [Azul Zulu JDK](https://www.azul.com/downloads/?package=jdk): [GNU GPLv2 License](https://openjdk.java.net/legal/gplv2+ce.html).
 - [LWJGL3](https://github.com/PojavLauncherTeam/lwjgl3): [BSD-3 License](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
 - [LWJGLX](https://github.com/PojavLauncherTeam/lwjglx) (LWJGL2 API compatibility layer for LWJGL3): unknown license.
+- [DayNightSwitch](https://github.com/finngaida/DayNightSwitch): [MIT License](https://github.com/finngaida/DayNightSwitch/blob/master/LICENSE)
 - [DBNumberedSlider](https://github.com/khanhduytran0/DBNumberedSlider): [Apache 2.0 License](https://github.com/immago/DBNumberedSlider/blob/master/LICENSE)
 - [fishhook](https://github.com/khanhduytran0/fishhook): [BSD-3 License](https://github.com/facebook/fishhook/blob/main/LICENSE).
 - [shaderc](https://github.com/khanhduytran0/shaderc) (used by Vulkan rendering mods): [Apache 2.0 License](https://github.com/google/shaderc/blob/main/LICENSE).
