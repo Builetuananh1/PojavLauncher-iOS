@@ -214,7 +214,7 @@
     };
 
     self.typeSwitch = ^void(UITableViewCell *cell, NSString *section, NSString *key, NSDictionary *item) {
-        DayNightSwitch *view = [[DayNightSwitch alloc] init];
+        DayNightSwitch *view = [[DayNightSwitch alloc] initWithCenter:CGPointZero];
         NSArray *customSwitchValue = item[@"customSwitchValue"];
         if (customSwitchValue == nil) {
             view.on = [weakSelf.getPreference(section, key) boolValue];
