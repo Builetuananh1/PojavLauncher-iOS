@@ -81,7 +81,7 @@ Pojav Patch is amazing, and surprisingly stable, and it wouldn't be this way wit
 @Mathius-Boulay  
 @zhuowei  
 @jkcoxson   
-@Diatrus 
+@Diatrus   
 @congcq - Pojav Patch's maintainer
 
 ## Third party components and their licenses
