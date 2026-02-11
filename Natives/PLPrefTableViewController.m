@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
-#import "DayNightSwitch.h"
 #import "DBNumberedSlider.h"
 #import "LauncherNavigationController.h"
 #import "LauncherMenuViewController.h"
@@ -214,17 +213,14 @@
     };
 
     self.typeSwitch = ^void(UITableViewCell *cell, NSString *section, NSString *key, NSDictionary *item) {
-        DayNightSwitch *view = [[DayNightSwitch alloc] initWithCenter:CGPointZero];
+        UISwitch *view = [[UISwitch alloc] init];
         NSArray *customSwitchValue = item[@"customSwitchValue"];
         if (customSwitchValue == nil) {
-            view.on = [weakSelf.getPreference(section, key) boolValue];
+            [view setOn:[weakSelf.getPreference(section, key) boolValue] animated:NO];
         } else {
-            view.on = [weakSelf.getPreference(section, key) isEqualToString:customSwitchValue[1]];
+            [view setOn:[weakSelf.getPreference(section, key) isEqualToString:customSwitchValue[1]] animated:NO];
         }
-        __weak typeof(view) weakView = view;
-        view.changeAction = ^(BOOL on) {
-            [weakSelf switchChanged:weakView];
-        };
+        [view addTarget:weakSelf action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = view;
     };
 }
@@ -268,7 +264,7 @@
     self.setPreference(section, key, @(sender.value));
 }
 
-- (void)switchChanged:(DayNightSwitch *)sender {
+- (void)switchChanged:(UISwitch *)sender {
     [self checkWarn:sender];
     NSDictionary *item = objc_getAssociatedObject(sender, @"item");
     NSString *section = objc_getAssociatedObject(sender, @"section");
@@ -277,11 +273,11 @@
     // Special switches may define custom value instead of NO/YES
     NSArray *customSwitchValue = item[@"customSwitchValue"];
     self.setPreference(section, key, customSwitchValue ?
-        customSwitchValue[sender.on] : @(sender.on));
+        customSwitchValue[sender.isOn] : @(sender.isOn));
 
     void(^invokeAction)(BOOL) = item[@"action"];
     if (invokeAction) {
-        invokeAction(sender.on);
+        invokeAction(sender.isOn);
     }
 
     // Some settings may affect the availability of other settings
@@ -318,11 +314,9 @@
     // userInterfaceIdiom = tvOS
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (item[@"type"] == self.typeSwitch) {
-        DayNightSwitch *view = (id)cell.accessoryView;
-        view.on = !view.on;
-        if (view.changeAction) {
-            view.changeAction(view.on);
-        }
+        UISwitch *view = (id)cell.accessoryView;
+        view.on = !view.isOn;
+        [view sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
