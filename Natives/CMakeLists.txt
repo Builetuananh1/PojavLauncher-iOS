@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(PojavPatch)
+project(PojavLauncher)
 
 configure_file(${CMAKE_CURRENT_LIST_DIR}/config.h.in ${CMAKE_CURRENT_LIST_DIR}/config.h)
 
@@ -96,8 +96,8 @@ add_library(PojavPatchAccountJNI SHARED
 )
 target_link_libraries(PojavPatchAccountJNI)
 
-# PojavPatch
-add_executable(PojavPatch
+# PojavLauncher
+add_executable(PojavLauncher
   dyld_bypass_validation.m
   dyld_patch_platform.m
   main.m
@@ -180,10 +180,10 @@ add_executable(PojavPatch
 )
 
 if("${CMAKE_HOST_SYSTEM_NAME}" MATCHES "Linux|^GNU$|Android")
-target_sources(PojavPatch PUBLIC non_darwin_utils.m)
+target_sources(PojavLauncher PUBLIC non_darwin_utils.m)
 endif()
 
-target_link_libraries(PojavPatch
+target_link_libraries(PojavLauncher
   PUBLIC AFNetworking
   lzma
   "-F'${CMAKE_CURRENT_LIST_DIR}/build'"
@@ -205,7 +205,7 @@ target_link_libraries(PojavPatch
   "-framework WebKit"
   "-weak_framework SafariServices"
 )
-set_target_properties(PojavPatch PROPERTIES
+set_target_properties(PojavLauncher PROPERTIES
   MACOSX_BUNDLE TRUE
   MACOSX_FRAMEWORK_IDENTIFIER org.cmake.ExecutableTarget
   MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_LIST_DIR}/Info.plist")
