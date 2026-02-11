@@ -130,5 +130,5 @@ jobs:
         uses: actions/upload-artifact@main
         if: matrix.platform_name == 'ios'
         with:
-          name: PojavPatch.dSYM
-          path: artifacts/PojavPatch.dSYM
+          name: PojavLauncher.dSYM
+          path: artifacts/PojavLauncher.dSYM
