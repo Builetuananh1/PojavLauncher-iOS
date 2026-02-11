@@ -19,7 +19,6 @@ endif()
 
 include_directories(
   "."
-  "external/DayNightSwitch"
   "external/AFNetworking/AFNetworking"
   "external/AFNetworking/UIKit+AFNetworking"
   "external/DBNumberedSlider/Classes"
@@ -122,7 +121,6 @@ add_executable(PojavPatch
   customcontrols/CustomControlsUtils.m
   customcontrols/NSPredicateUtilitiesExternal.m
 
-  external/DayNightSwitch/DayNightSwitch.m
   external/DBNumberedSlider/Classes/DBNumberedSlider.m
   external/NRFileManager/NSFileManager+NRFileManager.m
   external/ballpa1n/HostManager.c
