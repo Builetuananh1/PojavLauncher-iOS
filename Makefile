@@ -382,8 +382,8 @@ package: payload
 dsym: payload
 	echo '[PojavLauncher v$(VERSION)] dsym - start'
 	dsymutil --arch arm64 $(OUTPUTDIR)/Payload/PojavLauncher.app/PojavLauncher; \
-	rm -rf $(OUTPUTDIR)/PojavPatch.dSYM; \
-	mv $(OUTPUTDIR)/Payload/PojavLauncher.app/PojavPatch.dSYM $(OUTPUTDIR)/PojavPatch.dSYM
+	rm -rf $(OUTPUTDIR)/PojavLauncher.dSYM; \
+	mv $(OUTPUTDIR)/Payload/PojavLauncher.app/PojavLauncher.dSYM $(OUTPUTDIR)/PojavLauncher.dSYM
 	echo '[PojavLauncher v$(VERSION)] dsym - end'
 	
 codesign:
