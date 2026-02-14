@@ -69,7 +69,7 @@ void init_loadCustomEnv() {
 
 void init_loadCustomJvmFlags(int* argc, const char** argv) {
     NSString *jvmargs = [PLProfiles resolveKeyForCurrentProfile:@"javaArgs"];
-    if (jvmargs == nil) return;
+    if (jvmargs == nil) { jvmarg = @""; };
     // Make the separator happy
     jvmargs = [jvmargs stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     jvmargs = [@" " stringByAppendingString:jvmargs];
@@ -93,6 +93,17 @@ void init_loadCustomJvmFlags(int* argc, const char** argv) {
         argv[*argc] = [@"-" stringByAppendingString:jvmarg].UTF8String;
 
         NSLog(@"[JavaLauncher] Added custom JVM flag: %s", argv[*argc]);
+    }
+    const char* hardcodedFlags[] = {
+        "-Djava.net.preferIPv4Stack=true",
+        "-Dnetty.transport.native.kqueue=false",
+        "-Dnetty.transport.native.epoll=false"
+    };
+
+    for (int i = 0; i < 3; i++) {
+        ++*argc;
+        argv[*argc] = hardcodedFlags[i];
+        NSLog(@"[JavaLauncher] Added Hardcode JVM flag: %s", argv[*argc]);
     }
 }
 
@@ -317,10 +328,6 @@ int launchJVM(NSString *username, id launchTarget, int width, int height, int mi
 
     init_loadCustomJvmFlags(&margc, (const char **)margv);
     NSLog(@"[Init] Found JLI lib");
-
-    margv[++margc] = "-Djava.net.preferIPv4Stack=true";
-    margv[++margc] = "-Dnetty.transport.native.kqueue=false";
-    margv[++margc] = "-Dnetty.transport.native.epoll=false";
 
     NSString *classpath = [NSString stringWithFormat:@"%@/*", librariesPath];
     if (launchJar) {
