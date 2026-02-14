@@ -208,6 +208,9 @@ int launchJVM(NSString *username, id launchTarget, int width, int height, int mi
     margv[++margc] = "-Dorg.lwjgl.system.allocator=system";
     //margv[++margc] = "-Dorg.lwjgl.util.NoChecks=true";
     margv[++margc] = "-Dlog4j2.formatMsgNoLookups=true";
+    margv[++margc] = "-Djava.net.preferIPv4Stack=true";
+    margv[++margc] = "-Dnetty.transport.native.kqueue=false";
+    margv[++margc] = "-Dnetty.transport.native.epoll=false";
 
     // Preset OpenGL libname
     const char *glLibName = getenv("POJAVPATCH_RENDERER");
