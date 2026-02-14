@@ -69,7 +69,7 @@ void init_loadCustomEnv() {
 
 void init_loadCustomJvmFlags(int* argc, const char** argv) {
     NSString *jvmargs = [PLProfiles resolveKeyForCurrentProfile:@"javaArgs"];
-    if (jvmargs == nil) { jvmarg = @""; };
+    if (jvmargs == nil) { jvmargs = @""; };
     // Make the separator happy
     jvmargs = [jvmargs stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
     jvmargs = [@" " stringByAppendingString:jvmargs];
