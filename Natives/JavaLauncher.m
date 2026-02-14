@@ -258,9 +258,6 @@ int launchJVM(NSString *username, id launchTarget, int width, int height, int mi
     margv[++margc] = "-Dcacio.font.fontscaler=sun.font.FreetypeFontScaler";
     margv[++margc] = [NSString stringWithFormat:@"-Dcacio.managed.screensize=%dx%d", width, height].UTF8String;
     margv[++margc] = "-Dswing.defaultlaf=javax.swing.plaf.metal.MetalLookAndFeel";
-    margv[++margc] = "-Djava.net.preferIPv4Stack=true";
-    margv[++margc] = "-Dnetty.transport.native.kqueue=false";
-    margv[++margc] = "-Dnetty.transport.native.epoll=false";
     if (isJava8) {
         // Setup Caciocavallo
         margv[++margc] = "-Dawt.toolkit=net.java.openjdk.cacio.ctc.CTCToolkit";
