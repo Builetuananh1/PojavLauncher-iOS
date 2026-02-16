@@ -180,7 +180,7 @@
               @"icon": @"timelapse",
               @"type": self.typeSwitch,
               @"enableCondition": ^BOOL(){
-                  return whenNotInGame() && (UIScreen.mainScreen.maximumFramesPerSecond > 60);
+                  return whenNotInGame();
               }
             },
             @{@"key": @"performance_hud",
