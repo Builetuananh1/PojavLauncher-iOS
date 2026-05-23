@@ -40,6 +40,7 @@ extern "C" {
 
 struct st_visual;
 struct st_context;
+struct st_api_create_context;
 struct pipe_screen;
 struct pp_queue_t;
 
